@@ -1,0 +1,20 @@
+{% extends 'profile_base.html' %}
+
+{% block profile_content %}
+<div class="form-container">
+    <form id="resume-form">
+    <h1>Make a Tailored Resume to each Job Application</h1>
+    <label for="job-description">
+        Paste a job description here 
+        to generate your resume.
+    </label>
+    <textarea id="job-description" rows="20"></textarea>
+    <div class="error"></div>
+    <div class="info"></div>
+    <button type="submit">Generate Resume</button>
+    <p>Insufficient balance? <a href="/pages/dashboard">Top up</a></p>
+</form>
+</div>
+
+<script type="module" src="/static/js/resume.js"></script>
+{% endblock %}

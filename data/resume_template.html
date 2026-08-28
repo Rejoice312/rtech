@@ -1,0 +1,214 @@
+<style>
+  /* Page sizing and base typography */
+  @page { size: A4; margin: 0; }
+  body {
+    font-family: "Times New Roman", Times, serif;
+    color: #000;
+    margin: 0.7in 0.9in;            /* mimic the document margins */
+    line-height: 1.18;
+    font-size: 11pt;               /* base font size */
+  }
+
+  /* Name (centered) */
+  h1 {
+    text-align: center;
+    font-size: 16pt;
+    font-weight: 700;
+    margin: 0;
+    padding: 0;
+    letter-spacing: 0.2pt;
+  }
+
+  /* Contact row centered under name */
+  .contact {
+    text-align: center;
+    font-size: 10pt;
+    margin-top: 6pt;
+    margin-bottom: 8pt;
+  }
+  .contact a { color: inherit; text-decoration: underline; }
+
+  /* Thin horizontal rule similar to template */
+  hr.top-rule {
+    border: 0;
+    border-top: 1px solid #000;
+    margin: 6pt 0 8pt 0;
+  }
+
+  /* Section headers centered and uppercase like the template */
+  h2 {
+    font-size: 11pt;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-align: center;      /* CENTERED as requested */
+    margin: 4pt 0 6pt 0;
+    padding-top: 2pt;
+  }
+
+  /* Entry block spacing */
+  .entry {
+    margin-bottom: 8pt;
+    padding: 0;
+  }
+
+  /* Header row for institution / organization and right-aligned location.
+     Use flex so left content takes remaining space and right content sits flush right. */
+  .entry-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 2pt;
+    font-weight: 700;
+  }
+
+  /* Left side text of entry header (institution etc.) */
+  .entry-header .left {
+    flex: 1 1 auto;
+    text-align: left;
+    padding-right: 8pt;
+  }
+
+  /* Right side of entry header (city, state) stays fixed-width and right-aligned */
+  .entry-header .right {
+    flex: 0 0 170px; /* reserve width for right-aligned location/date */
+    text-align: right;
+    white-space: nowrap;
+  }
+
+  /* Subheader row (degree / role on left, date on right) */
+  .subheader {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 4pt;
+    font-style: normal;
+    color: #000;
+  }
+
+  .subheader .left {
+    flex: 1 1 auto;
+    text-align: left;
+    font-style: normal;
+  }
+
+  .subheader .right {
+    flex: 0 0 170px;
+    text-align: right;
+    font-style: normal;
+    white-space: nowrap;
+  }
+
+  /* Small italic note text used in template */
+  .note {
+    font-size: 10pt;
+    font-style: italic;
+    margin: 0 0 4pt 0;
+    color: #222;
+  }
+
+  /* Bullet lists formatting */
+  ul {
+    margin: 2pt 0 6pt 18pt;
+    padding: 0;
+  }
+  ul li {
+    margin: 2pt 0;
+    padding: 0;
+  }
+
+  /* Leadership & Skills area spacing */
+  .skills {
+    margin-top: 4pt;
+  }
+  .skills p {
+    margin: 2pt 0;
+  }
+
+  /* Ensure horizontal rules between major sections */
+  hr.section-rule {
+    border: 0;
+    border-top: 1px solid #000;
+    margin: 8pt 0 8pt 0;
+  }
+
+  /* Make sure everything prints compactly to one page — reduce large default margins in some browsers */
+  @media print {
+    body { margin: 0.6in 0.6in; font-size: 11pt; }
+    .entry-header .right, .subheader .right { flex-basis: 160px; }
+  }
+</style>
+
+<h1>Firstname Lastname</h1>
+
+<p class="contact">
+  Home Street Address • City, State Zip •
+  <a href="mailto:youremail@college.harvard.edu">youremail@college.harvard.edu</a> • phone number
+</p>
+
+<hr class="top-rule">
+
+<h2>Education</h2>
+
+<div class="entry">
+  <div class="entry-header">
+    <div class="left">HARVARD UNIVERSITY</div>
+    <div class="right">Cambridge, MA</div>
+  </div>
+
+  <div class="subheader">
+    <div class="left">Degree, Concentration.</div>
+  </div>
+</div>
+
+
+<hr class="section-rule">
+
+<h2>Experience</h2>
+
+<div class="entry">
+  <div class="entry-header">
+    <div class="left">ORGANIZATION</div>
+    <div class="right">City, State (or Remote)</div>
+  </div>
+
+  <div class="subheader">
+    <div class="left"><em>Position Title</em></div>
+    <div class="right">Month Year – Month Year</div>
+  </div>
+
+  <ul>
+    <li>Beginning with your most recent position, describe your experience, skills, and resulting outcomes in bullet or paragraph form.</li>
+    <li>Begin each line with an action verb and include details that will help the reader understand your accomplishments, skills, knowledge, abilities, or achievements.</li>
+    <li>Quantify where possible.</li>
+    <li>Do not use personal pronouns; each line should be a phrase rather than a full sentence.</li>
+  </ul>
+</div>
+
+<div class="entry">
+  <div class="entry-header">
+    <div class="left">ORGANIZATION</div>
+    <div class="right">City, State</div>
+  </div>
+
+  <div class="subheader">
+    <div class="left"><em>Position Title</em></div>
+    <div class="right">Month Year – Month Year</div>
+  </div>
+
+  <ul>
+    <li>With your next-most recent position, describe your experience, skills, and results in bullet or paragraph form.</li>
+    <li>Begin each line with an action verb and include details that will help the reader understand your accomplishments, skills, knowledge, abilities, and achievements.</li>
+    <li>Quantify where possible.</li>
+    <li>Do not use personal pronouns; each line should be a phrase rather than a full sentence.</li>
+  </ul>
+</div>
+
+<hr class="section-rule">
+
+<h2>Skills</h2>
+
+<div class="skills">
+  <p><strong>Technical:</strong> List computer software and programming languages</p>
+  <p><strong>Language:</strong> List foreign languages and your level of fluency</p>
+</div>

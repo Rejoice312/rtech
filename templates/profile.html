@@ -1,0 +1,77 @@
+{% extends 'profile_base.html' %}
+
+{% block profile_content %}
+
+<div class="table-container last">
+    <table class=" center-table">
+        <tr>
+            <th>Name</th>
+            <td>{{ user.full_name }}</td>
+        </tr>
+        <tr>
+            <th>Email</th>
+            <td>{{ user.email }}</td>
+        </tr>
+        <tr>
+            <th>Country</th>
+            <td>{{ user.country }}</td>
+        </tr>
+        <tr>
+            <th>LinkedIn</th>
+            <td>{{ user.linkedin }}</td>
+        </tr>
+        <tr>
+            <th>Portfolio</th>
+            <td>{{ user.portfolio }}</td>
+        </tr>
+        <tr>
+            <th>Verification Status</th>
+            <td>{{ 'Verified' if user.verified else 'Not Verified' }}</td>
+        </tr>
+        <tr>
+            <th>Application Email</th>
+            <td>{{ user.application_email }}</td>
+        </tr>
+    </table>
+</div>
+
+<button id="edit-details-btn">Edit Details</button>
+    
+<div class="form-container last">
+    <form id="edit-details-form" class="hidden">
+        <h2>Edit Details</h2>
+        <p>Leave uneditted details as blank</p>
+        <label for="full-name">Full Name</label>
+        <input type="text" id="full-name" class="field">
+
+        <label for="country">Country of residence</label>
+        <select id="country" class="field">
+            <option value="">Select an option</option>
+            {% for country in countries %}
+            <option value="{{ country }}">{{ country|title }}</option>
+            {% endfor %}
+        </select>
+
+        <label for="linkedin">Linkedin URL</label>
+        <input type="url" id="linkedin" class="field">
+
+        <label for="portfolio">Portfolio URL</label>
+        <input type="url" class="field" id="portfolio">
+
+        <label for="application-email">Application email</label>
+        <input type="email" class="field" id="application-email">
+
+        <label for="resume">Paste your new resume here</label>
+        <textarea id="resume" rows="15"></textarea>
+
+        <div class="error"></div>
+        <div class="info"></div>
+
+        <button type="submit">Edit</button>
+
+    </form>
+</div>
+<script type="module" src="/static/js/profile.js"></script>
+    
+
+{% endblock %}

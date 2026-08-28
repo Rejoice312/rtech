@@ -1,0 +1,295 @@
+@import url('/static/css/variables.css');
+
+
+body.dark-mode {
+    --primary-color: rgb(13, 31, 78);
+    --primary-text-color: white;
+    --body-background-color: rgb(0, 0, 0);
+}
+
+body {
+    margin: 0;
+    background-color: var(--body-background-color);
+    color: var(--primary-text-color);
+}
+
+
+body > *{
+    margin: 0 10px;
+    font-size: 1rem;
+}
+
+
+/*************************
+    FORM DESIGN
+*************************/
+
+form {
+    background-color: var(--primary-color);
+    padding: var(--padding);
+    display: flex;
+    flex-direction: column;
+    border-radius: var(--card-border-radius);
+    gap: var(--gap);    
+}
+
+form > button {
+    background-color: var(--secondary-color);
+    color: var(--secondary-text-color);
+    font-size: var(--button-font-size);
+    padding: var(--padding);
+    border-radius: var(--button-border-radius);
+}
+
+form > button:disabled {
+    background-color: rgb(104, 145, 181);
+}
+
+form > button:hover {
+    font-size: calc(var(--button-font-size) * 1.1);
+}
+
+.field {
+    font-size: 1rem;
+}
+
+form > button:active {
+    font-size: 1.4rem;
+    background-color: rgb(10, 92, 174);
+}
+
+.field:focus {
+    border: 2px solid var(--secondary-color);
+    outline: none;
+}
+
+
+
+
+/******************************
+/*  HEADER, NAV AND FOOTER 
+*******************************/
+
+header {
+    display: flex;
+    font-size: 0.7rem;
+    justify-content: space-between;
+    background-color: var(--secondary-color);
+    padding: 0 var(--padding);
+    color: var(--secondary-text-color);
+    position: fixed;
+    width: calc(100vw - var(--padding));
+    margin-left: 0;
+    margin-right: 0;
+    top: 0;
+}
+
+
+#main-nav-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-right: 20px;
+    gap: calc(var(--gap)/2)
+}
+
+#main-nav {
+    display: grid;
+    grid-template-columns: max-content max-content max-content;
+    gap: calc(var(--gap)/2)
+}
+
+#main-nav > * {
+    align-self: center;
+    justify-self: center;
+    color: inherit;
+    background-color: inherit;
+    text-decoration: none;
+    font-size: 0.8rem;
+    display: block;
+}
+#main-nav > *:hover {
+    font-size: 0.7rem;
+}
+
+#main-nav *:active {
+    background-color: var(--primary-color);
+    color: var(--primary-text-color);
+}
+
+#mode-btn {
+    border-radius: 10px;
+}
+
+#mode-btn:hover {
+    font-size: 0.9rem;
+}
+
+#mode-btn:active {
+    background-color: inherit;
+    color: white;
+    
+}
+
+
+footer {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--secondary-color);
+    color: var(--secondary-text-color);
+    padding: var(--padding);
+    margin-top: 20px 0 0 0;
+    gap: var(--gap);
+}
+
+footer > .grid-container {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    row-gap: var(--gap);
+}
+footer > a{
+    color: var(--secondary-text-color);
+}
+
+
+
+/*********************
+  CARD DESIGN
+*********************/
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: var(--padding);
+    background-color: var(--primary-color);
+    margin-bottom: 20px;
+    border-radius: var(--card-border-radius);
+    text-align: center;
+}
+
+.card p, .card h1, .card h2, .card h3 {
+    margin-top: 0;
+}
+
+.card > img {
+    width: 100%;
+    border-radius: var(--card-border-radius);
+}
+
+
+
+/***************************
+    HERO DESIGN
+***************************/
+.card-hero {
+    height: 80vh;
+    font-size: 1.5rem;
+    background-image: url('/static/images/hero.png');
+    color: black;
+}
+
+
+
+/**************************
+    ERROR AND INFO DISPLAY
+**************************/
+.error {
+    color: red;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.info {
+    color: green;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+
+/**********************
+    TABLE DESIGN
+**********************/
+.table-container {
+    margin-top: 40px;
+    width: 100%;
+    overflow: auto;
+}
+.table-container h2 {
+    text-align: center;
+}
+table {
+    border-collapse: collapse;
+    margin: auto;
+}
+td, th {
+    padding: var(--padding);
+}
+tr:hover {
+    background-color: var(--secondary-color);
+    color: var(--secondary-text-color);
+}
+
+.caption {
+    text-align: center;
+}
+
+
+/*********************
+    UTILS
+*********************/
+
+.first {
+    margin-top: 90px;
+}
+
+.last {
+    margin-bottom: 30px;
+}
+
+.hidden {
+    display: none;
+}
+
+
+/****************************
+    MEDIA QUERIES
+/****************************/
+
+/* Tablets */
+@media (min-width: 768px) {
+    :root {
+        font-size: 1.25em;
+    }
+    .form-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    form {
+        width: 70vw;   
+    }
+    .first {
+        margin-top: 110px;
+    }
+
+}
+
+/* Desktops */
+@media (min-width: 1024px){
+    :root{
+        font-size: 1.5em;
+    }
+    .form-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    form {
+        width: 50vw
+    }
+    .first {
+        margin-top: 130px;
+    }
+}

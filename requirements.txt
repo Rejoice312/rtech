@@ -1,0 +1,29 @@
+# Web Framework & API
+fastapi
+uvicorn
+python-multipart
+jinja2
+requests
+
+# Database
+psycopg[binary]
+
+# AI & Google APIs
+google-genai
+google-api-python-client
+google-auth-oauthlib
+google-auth
+
+# Authentication & Security
+pyjwt
+pwdlib[argon2]
+
+# Scheduling
+apscheduler
+
+# PDF Generation
+weasyprint
+
+# Data & Environment
+python-dotenv
+pandas

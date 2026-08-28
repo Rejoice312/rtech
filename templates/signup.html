@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="card first">
+    <h1>Applying for Jobs but Hearing Nothing Back?</h1>
+    <p>
+        You’re qualified. You’ve applied. But the interviews aren’t coming.
+
+        <b>Stand out with an AI-powered resume tailored to each job you apply for</b> and give recruiters a reason to call.
+
+        Whether it’s a remote role or your dream job, <b>your next opportunity starts with a better resume</b>.
+    </p>
+</div>
+<div class="form-container">
+    <form class="form" id="signup-form">
+        <h1>Sign Up</h1>
+        <label for="email">Email</label>
+        <input type="email" id="email" class="field" placeholder="youremail@domain.com" required>
+
+        <label for="full-name">Full name</label>
+        <input type="text" id="full-name" class="field" placeholder="John Doe" required>
+
+        <label for="country">Country of residence</label>
+        <select id="country" class="field">
+            <option value="">Select a country</option>
+            {% for country in countries %}
+            <option value="{{ country }}">{{ country|title }}</option>
+            {% endfor %}
+        </select>
+
+        <label for="linkedin">Linkedin URL</label>
+        <input type="url" id="linkedin" class="field" placeholder="https://www.linkedin.com/...">
+
+        <label for="portfolio">Portfolio URL</label>
+        <input type="url" id="portfolio" class="field" placeholder="https://portfolio...">
+
+        <label for="password">Password</label>
+        <input type="password" id="password" class="field" required>
+
+        <label for="password">Confirm password</label>
+        <input type="password" id="confirm-password" class="field" required>
+
+        <label for="resume">Paste your resume here</label>
+        <textarea id="resume" rows="20" minlength="1000" maxlength="6933" required></textarea>
+
+        <!--    ERROR DISPLAY   -->
+        <div class="error"></div>
+        <div class="info"></div>
+
+        <button type="submit" id="signup-btn">Signup</button>
+    </form>
+</div>
+
+<div class="last">
+    <p>Already have an account? <a href="/pages/login">Login</a></p>
+</div>
+<script type="module" src="/static/js/signup.js"></script>
+{% endblock %}

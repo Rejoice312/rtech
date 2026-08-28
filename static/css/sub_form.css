@@ -1,0 +1,6 @@
+@import url(base.css);
+form > .grid-container {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: var(--gap);
+}

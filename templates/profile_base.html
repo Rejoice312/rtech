@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="/static/css/profile_base.css">
+{% endblock %}
+
+{% block content %}
+<!--    IF USER IS AUTHENTICATED    -->
+<nav id="profile-nav" class="first">
+    <ul>
+        <li><a href="/pages/dashboard">Dashboard</a></li>
+        <li><a href="/pages/profile">Profile</a></li>
+        <li><a href="/pages/resume">Resume Maker</a></li>
+        <li><a href="/auth/logout">Logout</a></li>
+    </ul>
+</nav>
+<main>
+    {% block profile_content %}
+    {% endblock %}
+</main>
+{% endblock %}

@@ -1,0 +1,55 @@
+{% extends 'profile_base.html' %}
+
+{% block profile_content %}
+<!--    IF USER IS AUTHENTICATED    -->
+<div class="last">
+    <section class="card">
+        <h1>Welcome, {{ user.full_name }} </h1>
+        <p>Wallet balance: ${{ user.balance|round(2) }}</p>
+    </section>
+
+    <div class="form-container">
+        <form id="deposit-form" class="form">
+        <h2>Deposit</h2>
+        <label for="deposit-amount">Enter top up amount $</label>
+        <input type="number" min="20" id="deposit-amount" class="field" required>
+        <div class="error" id="payment-url-error"></div>
+        <div class="info" id="payment-url-info"></div>
+        
+        <button type="submit" id="deposit-btn">Deposit</button>
+    </form>
+    </div>
+
+    {% if applications %}
+    <h2 class="caption">My Applications</h2>
+    <div class="table-container">
+        <table>
+            <tr>
+                <th>Job Title</th>
+                <th>Organization</th>
+                <th>Job Description</th>
+                <th>Application Date</th>
+                <th>Resume Used</th>
+            </tr>
+            {% for application in applications %}
+            <tr>
+                <td>{{ application.job_title }}</td>
+                <td>{{ application.organization }}</td>
+                <td>{{ application.job_description }}</td>
+                <td>{{ application.application_timestamp }}</td>
+                <td>{{ application.resume }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+    {% else %}
+    <p>
+        You have not made any job applications yet. 
+        Click <a href="/pages/resume">here</a> to start. When you do,
+        they would appear here.
+    </p>
+    {% endif %}
+</div>
+<script type="module" src="/static/js/dashboard.js"></script>
+{% endblock %}

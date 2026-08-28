@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="/static/css/sub_form.css">
+{% endblock %}
+
+{% block content %}
+<div class="card first">
+    <h1>Let's Understand Your Needs</h1>
+    <p>Are you a professional seeking to upskill or get a remote job?</p>
+    <p>Are you afraid of being replaced by those who have Digital and skills?</p>
+    <p>
+        Are you an entrepreneur seeking to improve your business workflow and increase
+        efficiency through digital and AI skills?
+    </p>
+    <p>Fill in the form below to recieve the free PDF for guidede learning in your course
+        of interest
+    </p>
+</div>
+
+<div class="form-container last">
+    <form action="/forms/subscribe" method="post">
+        <h2 class="form-top">Contact Information</h2>
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="mattjackson@domain.com" class="field" required>
+
+        <label for="full-name">Full name</label>
+        <input type="text" id="full-name" name="full_name" placeholder="Matt Jackson" class="field" required>
+
+        <label for="country">Country of residence</label>
+        <select name="country" id="country" class="field" required>
+            <option value="">Select a country</option>
+            {% for country in countries %}
+                <option value="{{ country }}">{{ country|title() }}</option>
+            {% endfor %}
+        </select>
+
+        <!-- COURSES LIST -->
+        <h2>Course of Interest</h2>
+        <div class="grid-container">
+            {% for course in courses %}
+                {% set course_id = course|lower()|replace(' ', '-') %}
+
+                <label for="{{ course_id }}">{{ course }}</label>
+                <input type="checkbox" id="{{ course_id }}" name="courses" value="{{ course }}">
+            {% endfor %}
+        </div>
+
+        <h2>Background Information</h2>
+        <label for="occupation">What is your current occupation?</label>
+        <input type="text" id="occupation" name="occupation" class="field" required>
+
+        <label for="goal">Why are you interested in the selected courses above?</label>
+        <textarea class="field" name="goal" id="goal" required rows="10"></textarea>
+        
+        <div class="error"></div>
+        <button type="submit" class="form-bottom" >Submit</button>
+    </form>
+</div>
+<script src="/static/js/sub_form.js"></script>
+{% endblock %}

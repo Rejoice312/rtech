@@ -1,0 +1,13 @@
+:root {
+    --primary-color: rgb(221, 230, 252);
+    --secondary-color: rgb(0, 103, 200);
+    --primary-text-color: black;
+    --secondary-text-color: white;
+    --padding: 10px;
+    --card-border-radius: 10px;
+    --gap: 10px;
+    --button-font-size: 1.25rem;
+    --button-border-radius: 10px;
+    --paragraph-margin: 10px;
+    --body-background-color: white;
+}
