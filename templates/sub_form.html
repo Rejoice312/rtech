@@ -13,8 +13,10 @@
         Are you an entrepreneur seeking to improve your business workflow and increase
         efficiency through digital and AI skills?
     </p>
-    <p>Fill in the form below to recieve the free PDF for guidede learning in your course
-        of interest
+    <p>Fill in the form below to register for your courses
+        of interest. If unsure of which one would suit your needs, you should still fill in the form 
+        with any course and you'll be contacted with the opportunity for a conversation to help you
+        choose a course that aligns with your needs and interests.
     </p>
 </div>
 
@@ -34,6 +36,9 @@
                 <option value="{{ country }}">{{ country|title() }}</option>
             {% endfor %}
         </select>
+
+        <label for="phone">Whatsapp phone number</label>
+        <input type="tel" id="phone", name="phone" placeholder="+123456789" class="field" required>
 
         <!-- COURSES LIST -->
         <h2>Course of Interest</h2>

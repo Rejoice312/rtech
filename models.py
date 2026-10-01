@@ -14,7 +14,7 @@ class SubscribeRequest(BaseModel):
     occupation: str
     goal: str
     country: str
-    phone: str | None = None
+    phone: str 
 
 
 #===============================
