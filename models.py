@@ -1,14 +1,21 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, EmailStr
 from typing import Literal
 import datetime as dt
 
-
-
+def clean_fields(**args):
+    for key, value in args.items():
+        if isinstance(value, str):
+            value = value.strip()
+        elif isinstance(value, list):
+            value = [
+                value_element.strip() if isinstance(value_element, str) else value_element
+                for value_element in value
+            ]
 #==============================
 #   REQUEST MODELS
 #==============================
 class SubscribeRequest(BaseModel):
-    email: str
+    email: EmailStr
     full_name: str
     courses: list[str]
     occupation: str
