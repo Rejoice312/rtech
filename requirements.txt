@@ -27,3 +27,6 @@ weasyprint
 # Data & Environment
 python-dotenv
 pandas
+
+# Others
+email-validator
