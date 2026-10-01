@@ -4,7 +4,7 @@ from urllib.parse import quote_plus
 
 load_dotenv()
 
-DEBUG = True
+DEBUG = False
 
 # DEBUG CONFIG
 if DEBUG:
